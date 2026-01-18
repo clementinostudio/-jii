@@ -65,15 +65,16 @@ export const MinimalistHero = ({
       {/* Note: Navbar has been moved to App.tsx for global fixed positioning */}
 
       {/* Main Content Area */}
-      {/* Added gap-8 for better vertical spacing on mobile */}
-      <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center md:grid-cols-3 mt-4 md:mt-0 gap-8 md:gap-0">
+      {/* Removed items-center from grid wrapper to allow individual vertical alignment */}
+      <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 md:grid-cols-3 mt-4 md:mt-0 gap-8 md:gap-0">
         
         {/* Left Text Content (Description) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="z-20 order-2 md:order-1 text-center md:text-left"
+          // Added self-center to keep text vertically centered
+          className="z-20 order-2 md:order-1 text-center md:text-left self-center"
         >
           {/* Increased font size for mobile (text-base) and desktop (text-lg) */}
           <p className="mx-auto max-w-xs text-base md:text-lg leading-relaxed text-foreground/80 md:mx-0">
@@ -89,7 +90,8 @@ export const MinimalistHero = ({
         </motion.div>
 
         {/* Center Image with Circle */}
-        <div className="relative order-1 md:order-2 flex justify-center items-center h-full min-h-[300px] md:min-h-auto">
+        {/* Changed items-center to items-end to align image to the bottom of the grid cell */}
+        <div className="relative order-1 md:order-2 flex justify-center items-end h-full min-h-[300px] md:min-h-auto">
             <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -116,7 +118,8 @@ export const MinimalistHero = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.2 }}
-          className="z-20 order-3 flex items-center justify-center text-center md:justify-start"
+          // Added self-center to keep text vertically centered
+          className="z-20 order-3 flex items-center justify-center text-center md:justify-start self-center"
         >
           {/* Responsive font sizing: 5xl on mobile -> 9xl on large screens */}
           <h1 className="text-5xl sm:text-6xl font-extrabold text-foreground md:text-8xl lg:text-9xl tracking-tighter leading-none">
